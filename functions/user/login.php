@@ -65,6 +65,14 @@ if(!isset($user->num_rows)){
 			);
 			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
 			break;
+
+		case 4:
+			$menus = array(
+				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
+				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+			);
+			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
+			break;
 		
 		default:
 			$api->out( $api->params->id_number,0,"Account Type is invalid..." );
