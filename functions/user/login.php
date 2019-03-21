@@ -30,6 +30,7 @@ if(!isset($user->num_rows)){
 				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
 				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
 				array("name"=>"User Management","url"=>"admin/user_management","icon"=>"fa-users"),
+				array("name"=>"Accounting","url"=>"pages/Accounting/JAO","icon"=>"fa-users"),
 			);
 			$res = array("main_view"=>$mainView,"page_content"=>"admin/dashboard","user"=>$user,"menus"=>$menus);
 			break;
