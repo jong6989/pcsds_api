@@ -29,6 +29,21 @@
         array("data"=>$d->data,"status"=>2),
         array("id"=>$api->params->id)
     );
+    
+    //notify applicant
+    $next_id = $api->permitting_notifications->last() + 1;
+    $api->permitting_notifications->create(
+        array(
+            "user_id" => $d->user_id,
+            "name" => $d->name,
+            "data" => array(
+                "transaction_id" => $api->params->id,
+                "message"=> "Your Application was Rejected. " . $api->params->remark,
+                "url" => "#!/pages/single/notification?id=" . $next_id
+            ),
+            "date" => date("Y-m-d H:i:s")
+        )
+    );
 
     $d->status = 2;
     $d->{"user"} = $api->permitting_accounts->get(array("id"=>$d->user_id ))[0];

@@ -22,6 +22,7 @@ Class settings{
 			//DATABASE
 			array("pcsdgovp_pcsd_app","pab_admin_cases","case_no VARCHAR(64),date_filed VARCHAR(64) NOT NULL,data TEXT ,status INT(1) default 0,date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
 			array("pcsdgovp_pcsd_app","intel","data TEXT ,status INT(1) default 0,date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
+			array("pcsdgovp_pcsd_app","geolocation","data TEXT ,date VARCHAR(64) NOT NULL"),
 
 			//Accounting
 			array("pcsdgovp_pcsd_app", "Accounting_JAO", "ObrNo VARCHAR(200), data TEXT,  AllotmentClass VARCHAR(200), Type_Expenses VARCHAR(200), Month_Date VARCHAR(200), Year_Date VARCHAR(200), DIVISION VARCHAR(200)"),

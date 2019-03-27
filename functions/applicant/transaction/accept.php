@@ -24,10 +24,30 @@
         "date" => date("Y-m-d H:i:s")
     );
 
+    if(!empty($api->params->certificate_of_inspection)){
+        $d->data->{"certificate_of_inspection"} = json_decode($api->params->certificate_of_inspection);
+        $d->data->{"payment_slip"} = json_decode($api->params->payment_slip);
+    }
+
     //transaction update
     $api->transactions->update(
         array("data"=>$d->data,"status"=>3),
         array("id"=>$api->params->id)
+    );
+
+    //notify applicant
+    $next_id = $api->permitting_notifications->last() + 1;
+    $api->permitting_notifications->create(
+        array(
+            "user_id" => $d->user_id,
+            "name" => $d->name,
+            "data" => array(
+                "transaction_id" => $api->params->id,
+                "message"=> "Your Application was Accepted by PCSD Staff and now on process.",
+                "url" => "#!/pages/single/notification?id=" . $next_id
+            ),
+            "date" => date("Y-m-d H:i:s")
+        )
     );
 
     $d->status = 3;

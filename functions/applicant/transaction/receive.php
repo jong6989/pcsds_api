@@ -28,7 +28,7 @@
             "user_id" => $d->user_id,
             "name" => $d->name,
             "data" => array(
-                "transaction_id" => $d->id,
+                "transaction_id" => $api->params->id,
                 "message"=> "Your Application was Received by PCSD Staff and now on review.",
                 "url" => "#!/pages/single/notification?id=" . $next_id
             ),

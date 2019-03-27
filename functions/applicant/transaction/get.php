@@ -12,6 +12,8 @@
 
     //return
     $d = $api->transactions->get(array("id"=>$api->params->id))[0];
+    // echo var_dump($d);
+    // die();
     $d->{"user"} = $api->permitting_accounts->get(array("id"=>$d->user_id ))[0];
     $api->out( $d );
 
