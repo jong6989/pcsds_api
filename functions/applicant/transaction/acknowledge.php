@@ -58,6 +58,20 @@
         )
     );
 
+    // notify enforcers 
+    $api->notification->create(
+        array(
+            "item_id" => $api->params->id,
+            "item_type" => 'transaction',
+            "user_level" => ',6,',
+            "data" => array(
+                "message"=> $d->name . " was Acknowledged by " . $staff->data->first_name . " " . $staff->data->last_name,
+                "staff_id" => $staff->id
+            ),
+            "date" => date("Y-m-d H:i:s")
+        )
+    );
+
     $d->status = 6;
     $d->{"user"} = $api->permitting_accounts->get(array("id"=>$d->user_id ))[0];
 
