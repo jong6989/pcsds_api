@@ -23,7 +23,7 @@ Class settings{
 			array("pcsdgovp_pcsd_app","pab_admin_cases","case_no VARCHAR(64),date_filed VARCHAR(64) NOT NULL,data TEXT ,status INT(1) default 0,date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
 			array("pcsdgovp_pcsd_app","intel","data TEXT ,status INT(1) default 0,date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
 			array("pcsdgovp_pcsd_app","geolocation","data TEXT ,date VARCHAR(64) NOT NULL"),
-			array("pcsdgovp_pcsd_app","notification","item_id INT(11) default 0,item_type VARCHAR(200) default '',data TEXT,user_id VARCHAR(200) default '',user_level VARCHAR(200) default '',status INT(1) default 0,date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
+			array("pcsdgovp_pcsd_app","notification","item_id INT(11) default 0,item_type VARCHAR(200) default '',data TEXT,user_id VARCHAR(200) default '',date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
 
 			//Accounting
 			array("pcsdgovp_pcsd_app", "Accounting_JAO", "ObrNo VARCHAR(200), data TEXT,  AllotmentClass VARCHAR(200), Type_Expenses VARCHAR(200), Month_Date VARCHAR(200), Year_Date VARCHAR(200), DIVISION VARCHAR(200)"),

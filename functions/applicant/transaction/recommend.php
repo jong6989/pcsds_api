@@ -1,5 +1,7 @@
 <?php 
     global $api;
+    include './././includes/notif.php';
+    $notif = new notif($api);
     
     //require some fields
     $api->required_fields(array("user_id","id","remark"));
@@ -46,18 +48,10 @@
     );
 
     // notify enforcers 
-    $api->notification->create(
-        array(
-            "item_id" => $api->params->id,
-            "item_type" => 'transaction',
-            "user_level" => ',6,',
-            "data" => array(
-                "message"=> $d->name . " was Recommended by " .$staff->data->first_name . " " . $staff->data->last_name,
-                "staff_id" => $staff->id
-            ),
-            "date" => date("Y-m-d H:i:s")
-        )
-    );
+    $notif->by_level([5,6,7],"transaction",$api->params->id,array(
+        "message"=> $d->name . " was Recommended by " . $staff->data->first_name . " " . $staff->data->last_name,
+        "staff_id" => $staff->id
+    ));
 
     $d->status = 5;
     $d->{"user"} = $api->permitting_accounts->get(array("id"=>$d->user_id ))[0];

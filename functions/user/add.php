@@ -10,7 +10,7 @@ $x = $api->users->get(array("id"=>$api->params->user_id))[0];
 if($x->user_level == 0 ) $api->out($api->params->user_id,0,"This account dont have the access ...");
 
 //check duplicate
-if($api->users->exist(array("id_number"=>$api->params->id_number))) $api->out( $api->params->id_number,0,"Username exist!" );
+if($api->users->exist(array("id_number"=>$api->params->id_number))) $api->out( $api->params->id_number,0,"ID Number exist!" );
 
 $h =  create_hash($api->params->user_key);// php 5
 

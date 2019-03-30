@@ -1,6 +1,8 @@
 <?php 
     global $api;
-    
+    include './././includes/notif.php';
+    $notif = new notif($api);
+
     //require some fields
     $api->required_fields(array("user_id","name","data"));
 
@@ -19,6 +21,12 @@
 
     //create data
     $api->transactions->create($new);
+
+
+    // notify permitting staff 
+    $notif->by_level([5,6,7,8],"transaction",$api->transactions->last(),array(
+        "message"=> " New " . $api->params->name
+    ));
 
     //return
     $api->out( $api->transactions->last() );

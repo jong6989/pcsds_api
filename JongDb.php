@@ -140,8 +140,8 @@ if(!class_exists("JongDb")){
 	        return $this->query($sql);
 		}
 
-		public function search($where_array=null,$order="DESC",$order_by="id", $limit=500, $offset=0){
-
+		public function search($where_array=null,$select_string=null,$order="DESC",$order_by="id", $limit=500, $offset=0){
+			$select = ($select_string === null) ? "*" : $select_string;
 			if($where_array!==null){
 				$where_string = "";
 
@@ -152,7 +152,7 @@ if(!class_exists("JongDb")){
 					} 
 					$where_string .= $key . " LIKE '" . $value . "'";
 				}
-				$sql = "SELECT * FROM $this->tblName WHERE $where_string ORDER BY $order_by $order LIMIT $limit OFFSET $offset";
+				$sql = "SELECT $select FROM $this->tblName WHERE $where_string ORDER BY $order_by $order LIMIT $limit OFFSET $offset";
 	    		return $this->query($sql);
 			}
 			return null;

@@ -1,5 +1,7 @@
 <?php 
     global $api;
+    include './././includes/notif.php';
+    $notif = new notif($api);
     
     //require some fields
     $api->required_fields(array("user_id","id","remark"));
@@ -13,7 +15,7 @@
     if(count($d) == 0) if($user->user_level == 0) $api->out( "",0,"Transaction number invalid" );
     $d = $d[0];
 
-    $d->data->application->status = "Acknowledged, for release";
+    $d->data->application->status = "Acknowledged, Ready to use";
 
     $staff = $api->users->get(array("id"=>$api->params->user_id ),"id,data")[0];
 
@@ -35,7 +37,7 @@
             $date->add(new DateInterval('P1Y'));
             break;
     }
-    $d->data->{"expiration"} = $date->format('Y-m-d') . "\n";
+    $d->data->{"expiration"} = $date->format('Y-m-d');
 
     //transaction update
     $api->transactions->update(
@@ -59,18 +61,10 @@
     );
 
     // notify enforcers 
-    $api->notification->create(
-        array(
-            "item_id" => $api->params->id,
-            "item_type" => 'transaction',
-            "user_level" => ',6,',
-            "data" => array(
-                "message"=> $d->name . " was Acknowledged by " . $staff->data->first_name . " " . $staff->data->last_name,
-                "staff_id" => $staff->id
-            ),
-            "date" => date("Y-m-d H:i:s")
-        )
-    );
+    $notif->by_level([6,7,8],"transaction",$api->params->id,array(
+        "message"=> $d->name . " was Acknowledged by " . $staff->data->first_name . " " . $staff->data->last_name,
+        "staff_id" => $staff->id
+    ));
 
     $d->status = 6;
     $d->{"user"} = $api->permitting_accounts->get(array("id"=>$d->user_id ))[0];
