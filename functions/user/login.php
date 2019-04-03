@@ -29,6 +29,7 @@ if(!isset($user->num_rows)){
 				array("name"=>"Dashboard","url"=>"admin/dashboard","icon"=>"fa-tachometer"),
 				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
 				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
+				array("name"=>"DB - Permits","url"=>"pages/database/permits","icon"=>"fa-file-o"),
 				array("name"=>"User Management","url"=>"admin/user_management","icon"=>"fa-users"),
 				array("name"=>"Accounting","url"=>"pages/Accounting/JAO","icon"=>"fa-users"),
 			);
