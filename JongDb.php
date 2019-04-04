@@ -109,7 +109,8 @@ if(!class_exists("JongDb")){
 								$n = strlen($value);
 								$e = str_split($value,1);
 								$xv = ( $e[0] == '"' )? substr($value, 1, $n - 2) : $value;
-								$row[$key] = json_decode($xv);
+								$dx = json_decode($xv);
+								$row[$key] = $dx;
 							} 
 				    	}
 				    	$j[] = new _($row);
