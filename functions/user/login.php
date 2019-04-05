@@ -40,6 +40,7 @@ if(!isset($user->num_rows)){
 			$menus = array(
 				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
 				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"DB - Permits","url"=>"pages/database/permits","icon"=>"fa-file-o"),
 			);
 			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
 			break;
@@ -48,6 +49,7 @@ if(!isset($user->num_rows)){
 			$menus = array(
 				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
 				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"DB - Permits","url"=>"pages/database/permits","icon"=>"fa-file-o"),
 			);
 			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
 			break;
@@ -56,6 +58,7 @@ if(!isset($user->num_rows)){
 			$menus = array(
 				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
 				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"DB - Permits","url"=>"pages/database/permits","icon"=>"fa-file-o"),
 			);
 			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
 			break;
@@ -64,6 +67,7 @@ if(!isset($user->num_rows)){
 			$menus = array(
 				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
 				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"DB - Permits","url"=>"pages/database/permits","icon"=>"fa-file-o"),
 			);
 			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
 			break;
@@ -72,6 +76,7 @@ if(!isset($user->num_rows)){
 			$menus = array(
 				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
 				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"DB - Permits","url"=>"pages/database/permits","icon"=>"fa-file-o"),
 			);
 			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
 			break;

@@ -6,7 +6,8 @@ $php_params = json_decode(file_get_contents('php://input'), true);
 $request_params = $_REQUEST;
 $params = array();
 
-// ini_set('display_errors',1); error_reporting(E_ALL);
+ini_set('display_errors',1); 
+// error_reporting(E_ALL);
 
 if(!empty($php_params)){
 	foreach ($php_params as $key => $value) {

@@ -109,7 +109,13 @@ if(!class_exists("JongDb")){
 								$n = strlen($value);
 								$e = str_split($value,1);
 								$xv = ( $e[0] == '"' )? substr($value, 1, $n - 2) : $value;
-								$dx = json_decode($xv);
+								
+								try {
+									$dx = json_decode($xv);
+									// echo var_dump($dx);
+								}catch (Exception $e){
+									echo $e->getMessage();
+								}
 								$row[$key] = $dx;
 							} 
 				    	}
