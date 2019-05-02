@@ -14,6 +14,7 @@ $user = $api->users->get(array("id_number"=>$api->params->id_number))[0];
 
 $c_pass = $user->user_key;
 $v =  validate_password($api->params->key, $c_pass); //php 5
+// $v =  password_verify($api->params->key, $c_pass);// php 7
 if(!$v) $api->out( $api->params->key,0,"Incorrect KEY!" );
 $user->user_key = "";
 if(!$user->status) $api->out( $api->params->id_number,0,"Account is de-activated! Please Visit your Admin." );
@@ -31,9 +32,9 @@ if(!isset($user->num_rows)){
 				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
 				array("name"=>"Datasets","url"=>"pages/database/permits","icon"=>"fa-database"),
 				array("name"=>"User Management","url"=>"admin/user_management","icon"=>"fa-users"),
-				array("name"=>"Accounting","url"=>"pages/Accounting/JAO","icon"=>"fa-users"),
+				// array("name"=>"Accounting","url"=>"pages/Accounting/JAO","icon"=>"fa-users"),
 			);
-			$res = array("main_view"=>$mainView,"page_content"=>"admin/dashboard","user"=>$user,"menus"=>$menus);
+			$res = array("main_view"=>$mainView,"page_content"=>"admin/user_management","user"=>$user,"menus"=>$menus);
 			break;
 
 		case 8:

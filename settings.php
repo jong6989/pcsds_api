@@ -26,12 +26,12 @@ Class settings{
 			array("pcsdgovp_pcsd_app","notification","item_id INT(11) default 0,item_type VARCHAR(200) default '',data TEXT,user_id VARCHAR(200) default '',date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
 			array("pcsdgovp_pcsd_app","permits","type VARCHAR(100) default '',sheet VARCHAR(100) default '',data TEXT,user_id INT(11) default '0',date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
 
-			//Accounting
-			array("pcsdgovp_pcsd_app", "Accounting_JAO", "ObrNo VARCHAR(200), data TEXT,  AllotmentClass VARCHAR(200), Type_Expenses VARCHAR(200), Month_Date VARCHAR(200), Year_Date VARCHAR(200), DIVISION VARCHAR(200)"),
-			array("pcsdgovp_pcsd_app", "Accounting_JAO_Budget", "Year VARCHAR(200), Month VARCHAR(200),AllotmentClass VARCHAR(200),Division VARCHAR(200), data TEXT"),
+			// //Accounting
+			// array("pcsdgovp_pcsd_app", "Accounting_JAO", "ObrNo VARCHAR(200), data TEXT,  AllotmentClass VARCHAR(200), Type_Expenses VARCHAR(200), Month_Date VARCHAR(200), Year_Date VARCHAR(200), DIVISION VARCHAR(200)"),
+			// array("pcsdgovp_pcsd_app", "Accounting_JAO_Budget", "Year VARCHAR(200), Month VARCHAR(200),AllotmentClass VARCHAR(200),Division VARCHAR(200), data TEXT"),
 
 			//Fuel Logs
-			array("pcsdgovp_pcsd_app","fuel_logs","trip_ticket_id VARCHAR(64),data TEXT,date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
+			// array("pcsdgovp_pcsd_app","fuel_logs","trip_ticket_id VARCHAR(64),data TEXT,date VARCHAR(64) NOT NULL,last_update TIMESTAMP"),
 
 				
 		);

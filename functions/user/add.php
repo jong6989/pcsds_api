@@ -13,6 +13,7 @@ if($x->user_level == 0 ) $api->out($api->params->user_id,0,"This account dont ha
 if($api->users->exist(array("id_number"=>$api->params->id_number))) $api->out( $api->params->id_number,0,"ID Number exist!" );
 
 $h =  create_hash($api->params->user_key);// php 5
+// $h = password_hash($api->params->user_key, PASSWORD_ARGON2I);//php 7
 
 $api->users->create(array(
 		"id_number" => $api->params->id_number,
