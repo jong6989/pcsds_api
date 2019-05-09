@@ -1,7 +1,9 @@
 <?php 
     global $api;
     include './././includes/notif.php';
+    include './././includes/tread.php';
     $notif = new notif($api);
+    $tread = new tread($api);
     
     //require some fields
     $api->required_fields(array("user_id","id","remark"));
@@ -22,7 +24,6 @@
     //set update data
     $d->data->{"approved"} = array(
         "staff" => $staff,
-        "remark" => $api->params->remark,
         "date" => date("Y-m-d H:i:s")
     );
 
@@ -31,6 +32,13 @@
         array("data"=>$d->data,"status"=>4),
         array("id"=>$api->params->id)
     );
+
+    //add to tread
+    $tread->single($api->params->id,array(
+        "staff" => $staff->data->first_name . " " . $staff->data->last_name,
+        "message" => base64_encode($api->params->remark),
+        "date" => date("Y-m-d H:i:s")
+    ));
 
     //notify applicant
     $next_id = $api->permitting_notifications->last() + 1;
@@ -50,6 +58,7 @@
     // notify enforcers 
     $notif->by_level([5,6,8],"transaction",$api->params->id,array(
         "message"=> $d->name . " was Approved by " . $staff->data->first_name . " " . $staff->data->last_name,
+        "transaction_id" => $api->params->id,
         "staff_id" => $staff->id
     ));
 

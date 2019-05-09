@@ -21,7 +21,7 @@
 
     //set update data
     $d->data->{"rejected"} = array(
-        "staff" => $staff,
+        "staff" => $staff->data->first_name . " " . $staff->data->last_name,
         "remark" => $api->params->remark,
         "date" => date("Y-m-d H:i:s")
     );
@@ -50,6 +50,7 @@
     // notify enforcers 
     $notif->by_level([5,6,7,8],"transaction",$api->params->id,array(
         "message"=> $d->name . " was Rejected by " . $staff->data->first_name . " " . $staff->data->last_name,
+        "transaction_id" => $api->params->id,
         "staff_id" => $staff->id
     ));
 

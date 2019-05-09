@@ -23,7 +23,6 @@ if($user->status == 0) $api->out( $api->params->name,0,"Account is de-activated!
 
 if(!isset($user->num_rows)){
     $res = "";
-    $user->user_pass = '';
 	$mainView = "app/templates/main.html";
 	if($user->user_level == 0){
 		$menus = array(
@@ -32,7 +31,6 @@ if(!isset($user->num_rows)){
 			);
 		$res = array("main_view"=>$mainView,"page_content"=>"pages/dashboard","user"=>$user,"menus"=>$menus);
 	}
-
 	$api->out( $res );
 }else {
 	$api->out( $api->params->name,0,"Unknown Error..." );

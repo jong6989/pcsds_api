@@ -24,7 +24,6 @@ if(isset($_FILES["file"])){
     $user = $api->permitting_accounts->get(array("id"=>$api->params->user_id))[0];
     $user->data->profile_picture = $file_path;
     $api->permitting_accounts->update(array("data"=>$user->data),array("id"=>$api->params->user_id));
-    $user->user_pass = "";
     $api->out( $user );
 }else {
     $api->out( "",0,"No file.." );

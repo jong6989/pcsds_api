@@ -27,7 +27,7 @@ if(!isset($user->num_rows)){
 	switch ($user->user_level) {
 		case 99:
 			$menus = array(
-				array("name"=>"Dashboard","url"=>"admin/dashboard","icon"=>"fa-tachometer"),
+				// array("name"=>"Dashboard","url"=>"admin/dashboard","icon"=>"fa-tachometer"),
 				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
 				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
 				array("name"=>"Datasets","url"=>"pages/database/permits","icon"=>"fa-database"),
