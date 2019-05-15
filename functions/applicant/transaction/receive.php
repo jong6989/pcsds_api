@@ -14,6 +14,7 @@
     //set update data
     $d->data->{"received"} = array(
         "staff" => $staff->data->first_name . " " . $staff->data->last_name,
+        "staff_id" => $staff->id,
         "date" => date("Y-m-d H:i:s")
     );
 

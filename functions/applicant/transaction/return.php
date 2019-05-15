@@ -19,18 +19,19 @@
 
     $staff = $api->users->get(array("id"=>$api->params->user_id ),"id,data")[0];
 
+    $d->status = ($d->status == 3)? 1 : $d->status - 1;
     //transaction update
     $api->transactions->update(
-        array("data"=>$d->data,"status"=> $d->status - 1 ),
+        array("data"=>$d->data,"status"=> $d->status ),
         array("id"=>$api->params->id)
     );
 
     //add to tread
-    $tread->single($api->params->id,array(
-        "staff" => $staff->data->first_name . " " . $staff->data->last_name,
-        "message" => base64_encode($api->params->remark),
-        "date" => date("Y-m-d H:i:s")
-    ));
+    // $tread->single($api->params->id,array(
+    //     "staff" => $staff->data->first_name . " " . $staff->data->last_name,
+    //     "message" => base64_encode($api->params->remark),
+    //     "date" => date("Y-m-d H:i:s")
+    // ));
 
     // notify enforcers 
     // $notif->by_level([5,6,7],"transaction",$api->params->id,array(
@@ -39,7 +40,7 @@
     //     "staff_id" => $staff->id
     // ));
 
-    $d->status = $d->status - 1;
+    
     $d->{"user"} = $api->permitting_accounts->get(array("id"=>$d->user_id ))[0];
 
     //return

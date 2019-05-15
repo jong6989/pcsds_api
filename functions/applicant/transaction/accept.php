@@ -23,7 +23,8 @@
 
     //set update data
     $d->data->{"accepted"} = array(
-        "staff" => $staff,
+        "staff" => $staff->data->first_name . " " . $staff->data->last_name,
+        "staff_id" => $staff->id,
         "date" => date("Y-m-d H:i:s")
     );
 
@@ -39,11 +40,11 @@
     );
 
     //add to tread
-    $tread->single($api->params->id,array(
-        "staff" => $staff->data->first_name . " " . $staff->data->last_name,
-        "message" => base64_encode($api->params->remark),
-        "date" => date("Y-m-d H:i:s")
-    ));
+    // $tread->single($api->params->id,array(
+    //     "staff" => $staff->data->first_name . " " . $staff->data->last_name,
+    //     "message" => base64_encode($api->params->remark),
+    //     "date" => date("Y-m-d H:i:s")
+    // ));
 
     //notify applicant
     $next_id = $api->permitting_notifications->last() + 1;

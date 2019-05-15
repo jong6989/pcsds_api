@@ -22,6 +22,7 @@
     //set update data
     $d->data->{"rejected"} = array(
         "staff" => $staff->data->first_name . " " . $staff->data->last_name,
+        "staff_id" => $staff->id,
         "remark" => $api->params->remark,
         "date" => date("Y-m-d H:i:s")
     );

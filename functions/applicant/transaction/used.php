@@ -21,7 +21,7 @@
 
     //set update data
     $d->data->{"used"} = array(
-        "staff" => $staff,
+        "staff" => $staff->data->first_name . " " . $staff->data->last_name,
         "remark" => $api->params->remark,
         "date" => date("Y-m-d H:i:s")
     );
