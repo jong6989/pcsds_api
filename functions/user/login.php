@@ -16,7 +16,7 @@ $c_pass = $user->user_key;
 $v =  validate_password($api->params->key, $c_pass); //php 5
 // $v =  password_verify($api->params->key, $c_pass);// php 7
 if(!$v) $api->out( $api->params->key,0,"Incorrect KEY!" );
-$user->user_key = "";
+// $user->user_key = "";
 if(!$user->status) $api->out( $api->params->id_number,0,"Account is de-activated! Please Visit your Admin." );
 
 if(!isset($user->num_rows)){
@@ -29,7 +29,8 @@ if(!isset($user->num_rows)){
 			$menus = array(
 				// array("name"=>"Dashboard","url"=>"admin/dashboard","icon"=>"fa-tachometer"),
 				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
-				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
+				array("name"=>"Applications","url"=>"pages/applications","icon"=>"fa-tasks"),
+				// array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
 				array("name"=>"Datasets","url"=>"pages/database/permits","icon"=>"fa-database"),
 				array("name"=>"User Management","url"=>"admin/user_management","icon"=>"fa-users"),
 				// array("name"=>"Accounting","url"=>"pages/Accounting/JAO","icon"=>"fa-users"),
@@ -39,47 +40,49 @@ if(!isset($user->num_rows)){
 
 		case 8:
 			$menus = array(
-				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
-				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"Applications","url"=>"pages/applications","icon"=>"fa-tasks"),
 				array("name"=>"Datasets","url"=>"pages/database/permits","icon"=>"fa-database"),
 			);
-			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
+			$res = array("main_view"=>$mainView,"page_content"=>"pages/applications","user"=>$user,"menus"=>$menus);
 			break;
 
 		case 7:
 			$menus = array(
-				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
-				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"Applications","url"=>"pages/applications","icon"=>"fa-tasks"),
 				array("name"=>"Datasets","url"=>"pages/database/permits","icon"=>"fa-database"),
 			);
-			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
+			$res = array("main_view"=>$mainView,"page_content"=>"pages/applications","user"=>$user,"menus"=>$menus);
 			break;
 
 		case 6:
 			$menus = array(
-				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
-				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"Applications","url"=>"pages/applications","icon"=>"fa-tasks"),
 				array("name"=>"Datasets","url"=>"pages/database/permits","icon"=>"fa-database"),
 			);
-			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
+			$res = array("main_view"=>$mainView,"page_content"=>"pages/applications","user"=>$user,"menus"=>$menus);
 			break;
 
 		case 5:
 			$menus = array(
-				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
-				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"Applications","url"=>"pages/applications","icon"=>"fa-tasks"),
 				array("name"=>"Datasets","url"=>"pages/database/permits","icon"=>"fa-database"),
 			);
-			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
+			$res = array("main_view"=>$mainView,"page_content"=>"pages/applications","user"=>$user,"menus"=>$menus);
 			break;
 
 		case 4:
 			$menus = array(
-				array("name"=>"Transactions","url"=>"pages/transactions","icon"=>"fa-exchange"),
-				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane"),
+				array("name"=>"Applications","url"=>"pages/applications","icon"=>"fa-tasks"),
 				array("name"=>"Datasets","url"=>"pages/database/permits","icon"=>"fa-file-o"),
 			);
-			$res = array("main_view"=>$mainView,"page_content"=>"pages/transactions","user"=>$user,"menus"=>$menus);
+			$res = array("main_view"=>$mainView,"page_content"=>"pages/applications","user"=>$user,"menus"=>$menus);
+			break;
+
+		case 1:
+			$menus = array(
+				array("name"=>"Incoming","url"=>"pages/document_management/information","icon"=>"fa-paper-plane")
+			);
+			$res = array("main_view"=>$mainView,"page_content"=>"pages/document_management/information","user"=>$user,"menus"=>$menus);
 			break;
 		
 		default:
